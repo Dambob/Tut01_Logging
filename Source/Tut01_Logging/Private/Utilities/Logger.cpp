@@ -21,7 +21,7 @@ void ULogger::LogMessage(FString message, bool onScreen)
 	// Print message to the log
 	// LogGame is the log channel
 	// Log is the verbosity
-	// TEXT("%s") is the string to print
+	// TEXT("%s") is the formatting mask to print
 	// *message replaces the first %s in the output string
 	UE_LOG(LogGame, Log, TEXT("%s"), *message);
 }
