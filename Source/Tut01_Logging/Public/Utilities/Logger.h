@@ -10,6 +10,10 @@
 class TUT01_LOGGING_API Logger
 {
 public:
-	Logger();
-	~Logger();
+
+private:
+	// Private and empty constructor/destructor
+	// This will be a purely static class
+	Logger() {};
+	~Logger() {};
 };

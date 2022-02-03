@@ -1,12 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Logger.h"
+#include "Utilities/Logger.h"
 
-Logger::Logger()
-{
-}
 
-Logger::~Logger()
-{
-}
