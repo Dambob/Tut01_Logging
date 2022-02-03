@@ -5,6 +5,12 @@
 #include "CoreMinimal.h"
 #include "Logger.generated.h"
 
+// Declare Logging Category
+// LogGame is the name of the log
+// Log is the default verbosity, this will include levels from "Fatal" up to "Log"
+// All is the highest level of logging we can use (VeryVerbose currently)
+DECLARE_LOG_CATEGORY_EXTERN(LogGame, Log, All);
+
 /**
  * Logging Utility
  */
