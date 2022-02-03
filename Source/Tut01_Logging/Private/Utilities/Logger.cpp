@@ -1,16 +1,15 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "Utilities/Logger.h"
 
 // Define Logging Category
 DEFINE_LOG_CATEGORY(LogGame);
 
 // Basic logging method
-void ULogger::LogMessage(FString message)
+void ULogger::LogMessage(FString message, bool onScreen)
 {
-	// Check that the engine exists
-	if (GEngine)
+	// Check that the engine exists and we want to display the message on screen
+	if (GEngine && onScreen)
 	{
 		// Add debug message to the screen
 		// INDEX_NONE adds message to the top of the list

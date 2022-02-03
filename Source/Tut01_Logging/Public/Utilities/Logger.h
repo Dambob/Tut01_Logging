@@ -23,7 +23,7 @@ public:
 	// Basic logging method
 	// UFunction allows calling from blueprints
 	UFUNCTION(BlueprintCallable, Category="Logging")
-	static void LogMessage(FString message);
+	static void LogMessage(FString message, bool onScreen = false);
 
 private:
 	// Private and empty constructor/destructor
