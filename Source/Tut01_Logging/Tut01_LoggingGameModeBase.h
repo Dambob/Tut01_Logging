@@ -13,5 +13,12 @@ UCLASS()
 class TUT01_LOGGING_API ATut01_LoggingGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+
+public:
+	// Constructor
+	ATut01_LoggingGameModeBase();
+	
+	// Destructor
+	~ATut01_LoggingGameModeBase();
 	
 };
