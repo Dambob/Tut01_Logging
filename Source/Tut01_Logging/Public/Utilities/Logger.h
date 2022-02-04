@@ -30,4 +30,7 @@ private:
 	// This will be a purely static class
 	ULogger() {};
 	~ULogger() {};
+
+	// Wrapper around UE_LOG macro
+	static void LogPrint(FString message, ELogVerbosity::Type verbosity);
 };

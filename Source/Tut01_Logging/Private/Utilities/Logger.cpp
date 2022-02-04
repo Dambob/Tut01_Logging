@@ -19,9 +19,26 @@ void ULogger::LogMessage(FString message, bool onScreen)
 	}
 
 	// Print message to the log
+	LogPrint(message, ELogVerbosity::Log);
+}
+
+// Wrapper around UE_LOG macro
+void ULogger::LogPrint(FString message, ELogVerbosity::Type verbosity)
+{
+	// Print message to the log
 	// LogGame is the log channel
-	// Log is the verbosity
+	// Verbosity is used to detect correct logging level
 	// TEXT("%s") is the formatting mask to print
 	// *message replaces the first %s in the output string
-	UE_LOG(LogGame, Log, TEXT("%s"), *message);
+	switch (verbosity)
+	{
+		case ELogVerbosity::Fatal:			UE_LOG(LogGame, Fatal, TEXT("%s"), *message); break;
+		case ELogVerbosity::Error:			UE_LOG(LogGame, Error, TEXT("%s"), *message); break;
+		case ELogVerbosity::Warning:		UE_LOG(LogGame, Warning, TEXT("%s"), *message); break;
+		case ELogVerbosity::Display:		UE_LOG(LogGame, Display, TEXT("%s"), *message); break;
+		case ELogVerbosity::Log:			UE_LOG(LogGame, Log, TEXT("%s"), *message); break;
+		case ELogVerbosity::Verbose:		UE_LOG(LogGame, Verbose, TEXT("%s"), *message); break;
+		case ELogVerbosity::VeryVerbose:	UE_LOG(LogGame, VeryVerbose, TEXT("%s"), *message); break;
+		default: break;
+	}
 }
