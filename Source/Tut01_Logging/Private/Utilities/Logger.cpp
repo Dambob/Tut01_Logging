@@ -8,40 +8,32 @@ DEFINE_LOG_CATEGORY(LogGame);
 // Basic logging method
 void ULogger::LogMessage(FString message, bool onScreen)
 {
-	// If we want to display the message on screen
-	if (onScreen)
-	{
-		ScreenPrint(message, FColor::White, 10.0f);
-	}
-
-	// Print message to the log
-	LogPrint(message, ELogVerbosity::Log);
+	PrintMessage(message, onScreen, FColor::White, 10.0f, ELogVerbosity::Log);
 }
 
 // Error logging method
 void ULogger::LogError(FString message, bool onScreen)
 {
-	// If we want to display the message on screen
-	if (onScreen)
-	{
-		ScreenPrint(message, FColor::Red, 10.0f);
-	}
-
-	// Print message to the log
-	LogPrint(message, ELogVerbosity::Error);
+	PrintMessage(message, onScreen, FColor::Red, 10.0f, ELogVerbosity::Error);
 }
 
 // Warning logging method
 void ULogger::LogWarning(FString message, bool onScreen)
 {
+	PrintMessage(message, onScreen, FColor::Yellow, 10.0f, ELogVerbosity::Warning);
+}
+
+// Print message
+void ULogger::PrintMessage(FString message, bool onScreen, FColor color, float timer, ELogVerbosity::Type verbosity)
+{
 	// If we want to display the message on screen
 	if (onScreen)
 	{
-		ScreenPrint(message, FColor::Yellow, 10.0f);
+		ScreenPrint(message, color, timer);
 	}
 
 	// Print message to the log
-	LogPrint(message, ELogVerbosity::Warning);
+	LogPrint(message, verbosity);
 }
 
 // Wrapper around UE_LOG macro

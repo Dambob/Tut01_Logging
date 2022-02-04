@@ -41,6 +41,9 @@ private:
 	ULogger() {};
 	~ULogger() {};
 
+	// Print message
+	static void PrintMessage(FString message, bool onScreen, FColor color, float timer, ELogVerbosity::Type verbosity);
+
 	// Wrapper around UE_LOG macro
 	static void LogPrint(FString message, ELogVerbosity::Type verbosity);
 
