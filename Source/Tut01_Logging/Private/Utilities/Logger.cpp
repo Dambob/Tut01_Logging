@@ -18,6 +18,32 @@ void ULogger::LogMessage(FString message, bool onScreen)
 	LogPrint(message, ELogVerbosity::Log);
 }
 
+// Error logging method
+void ULogger::LogError(FString message, bool onScreen)
+{
+	// If we want to display the message on screen
+	if (onScreen)
+	{
+		ScreenPrint(message, FColor::Red, 10.0f);
+	}
+
+	// Print message to the log
+	LogPrint(message, ELogVerbosity::Error);
+}
+
+// Warning logging method
+void ULogger::LogWarning(FString message, bool onScreen)
+{
+	// If we want to display the message on screen
+	if (onScreen)
+	{
+		ScreenPrint(message, FColor::Yellow, 10.0f);
+	}
+
+	// Print message to the log
+	LogPrint(message, ELogVerbosity::Warning);
+}
+
 // Wrapper around UE_LOG macro
 void ULogger::LogPrint(FString message, ELogVerbosity::Type verbosity)
 {

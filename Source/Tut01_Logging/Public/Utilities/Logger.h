@@ -25,6 +25,16 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Logging")
 	static void LogMessage(FString message, bool onScreen = false);
 
+	// Error logging method
+	// UFunction allows calling from blueprints
+	UFUNCTION(BlueprintCallable, Category = "Logging")
+	static void LogError(FString message, bool onScreen = false);
+
+	// Warning logging method
+	// UFunction allows calling from blueprints
+	UFUNCTION(BlueprintCallable, Category = "Logging")
+	static void LogWarning(FString message, bool onScreen = false);
+
 private:
 	// Private and empty constructor/destructor
 	// This will be a purely static class
