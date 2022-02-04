@@ -15,7 +15,7 @@ void ULogger::LogMessage(FString message, bool onScreen)
 		// INDEX_NONE adds message to the top of the list
 		// 10.0f shows the message for 10 seconds
 		// FColor::Red makes the message color red
-		GEngine->AddOnScreenDebugMessage(INDEX_NONE, 10.0f, FColor::Red, message);
+		GEngine->AddOnScreenDebugMessage(INDEX_NONE, 10.0f, FColor::White, message);
 	}
 
 	// Print message to the log
