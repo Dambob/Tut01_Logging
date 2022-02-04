@@ -63,8 +63,8 @@ void ULogger::ScreenPrint(FString message, FColor color, float timer)
 	{
 		// Add debug message to the screen
 		// INDEX_NONE adds message to the top of the list
-		// 10.0f shows the message for 10 seconds
-		// FColor::Red makes the message color red
+		// Timer shows the message for the duration in seconds
+		// color sets the message color
 		GEngine->AddOnScreenDebugMessage(INDEX_NONE, timer, color, message);
 	}
 }
