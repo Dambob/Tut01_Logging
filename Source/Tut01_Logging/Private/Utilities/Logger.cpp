@@ -8,14 +8,10 @@ DEFINE_LOG_CATEGORY(LogGame);
 // Basic logging method
 void ULogger::LogMessage(FString message, bool onScreen)
 {
-	// Check that the engine exists and we want to display the message on screen
-	if (GEngine && onScreen)
+	// If we want to display the message on screen
+	if (onScreen)
 	{
-		// Add debug message to the screen
-		// INDEX_NONE adds message to the top of the list
-		// 10.0f shows the message for 10 seconds
-		// FColor::Red makes the message color red
-		GEngine->AddOnScreenDebugMessage(INDEX_NONE, 10.0f, FColor::White, message);
+		ScreenPrint(message, FColor::White, 10.0f);
 	}
 
 	// Print message to the log
@@ -40,5 +36,17 @@ void ULogger::LogPrint(FString message, ELogVerbosity::Type verbosity)
 		case ELogVerbosity::Verbose:		UE_LOG(LogGame, Verbose, TEXT("%s"), *message); break;
 		case ELogVerbosity::VeryVerbose:	UE_LOG(LogGame, VeryVerbose, TEXT("%s"), *message); break;
 		default: break;
+	}
+}
+
+void ULogger::ScreenPrint(FString message, FColor color, float timer)
+{
+	if (GEngine)
+	{
+		// Add debug message to the screen
+		// INDEX_NONE adds message to the top of the list
+		// 10.0f shows the message for 10 seconds
+		// FColor::Red makes the message color red
+		GEngine->AddOnScreenDebugMessage(INDEX_NONE, timer, color, message);
 	}
 }

@@ -33,4 +33,7 @@ private:
 
 	// Wrapper around UE_LOG macro
 	static void LogPrint(FString message, ELogVerbosity::Type verbosity);
+
+	// Print message to screen
+	static void ScreenPrint(FString message, FColor color, float timer = 10.0f);
 };
