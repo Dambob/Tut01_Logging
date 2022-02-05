@@ -57,6 +57,7 @@ void ULogger::LogPrint(FString message, ELogVerbosity::Type verbosity)
 	}
 }
 
+// Print message to screen
 void ULogger::ScreenPrint(FString message, FColor color, float timer)
 {
 	if (GEngine)
